@@ -7,6 +7,7 @@ public class PlayerControllerX : MonoBehaviour
     public float speed = 20.0f;
     public float rotationSpeed = 0.0f;
     private float verticalInput;
+    public GameObject projectilePrefab;
 
     // Update is called once per frame
     void FixedUpdate()
