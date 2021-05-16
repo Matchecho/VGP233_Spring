@@ -50,13 +50,13 @@ public class PlayerControllerX : MonoBehaviour
         // if player collides with bomb, explode and set gameOver to true
         if (other.gameObject.CompareTag("Bomb"))
         {
+            Rigidbody EnemtRB = other.gameObject.GetComponent<Rigidbody>();
             gameOver = true;
             explosionParticle.Play();
-            playerAudio.PlayOneShot(explodeSound);           
+            playerAudio.PlayOneShot(explodeSound);
             Debug.Log("Game Over!");
             Destroy(other.gameObject);
-        } 
-        // if player collides with money, fireworks
+        }
         else if (other.gameObject.CompareTag("Money"))
         {
             fireworksParticle.Play();
@@ -74,12 +74,5 @@ public class PlayerControllerX : MonoBehaviour
             playerRb.AddForce(Vector3.down * floatForce / 3.0f, ForceMode.Impulse);
             playerAudio.PlayOneShot(BoingSound);
         }
-
-        else
-        {
-
-        }
-
     }
-
 }
