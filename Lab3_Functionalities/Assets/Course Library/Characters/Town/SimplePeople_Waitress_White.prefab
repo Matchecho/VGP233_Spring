@@ -419,6 +419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GoingRight: 0
+  StaticStand: 1
 --- !u!54 &6194133996226276142
 Rigidbody:
   m_ObjectHideFlags: 0

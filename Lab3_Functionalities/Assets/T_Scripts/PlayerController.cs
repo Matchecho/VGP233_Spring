@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject BulletPrefab;
-    private float DelayofBullet = 0.0f; //Delay of 2.5 seconds
+    private Camera Cam;
+    public GameObject Crosshair;
+    public GameObject AssaultRifle;
+    public float offsetMouse = 30.0f;
+    public AudioSource AudSource;
     // Update is called once per frame
+    void Start()
+    {
+        Cam = Camera.main;
+    }
     void Update()
     {
-        // On spacebar press, send dog
-        if (Input.GetKeyDown(KeyCode.Space) && DelayofBullet <= 0.0f)
-        {
-            Instantiate(BulletPrefab, transform.position, BulletPrefab.transform.rotation);
-            DelayofBullet = 150.0f;
-        }
-        if (DelayofBullet > 0.0f)
-        {
-            DelayofBullet--;
-        }
+        Vector3 MousePos = Input.mousePosition;
+        Crosshair.transform.position = MousePos;
+        MousePos.z = MousePos.z + offsetMouse;
+        AssaultRifle.transform.LookAt(Cam.ScreenToWorldPoint(MousePos));  
     }
 }
